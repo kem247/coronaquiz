@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import quizQuestions from '../questions';
 import Answers from './Answers';
+
 export default class Questions extends Component {
   constructor(props) {
     super(props);
@@ -43,10 +44,12 @@ export default class Questions extends Component {
     }
   }
   renderAnswerOptions(key) {
+    // console.log(key.image);
     return (
       <Answers
-        key={key.content}
-        answerContent={key.content}
+        key={key.content || key.image}
+        answerContent={key.content || key.image}
+        img={key.image}
         answerType={key.type}
         answer={this.state.answer}
         questionId={this.state.questionId}
@@ -80,7 +83,7 @@ export default class Questions extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswer[0],
     });
-    console.log(shuffledAnswer[0]);
+    console.log(shuffledAnswer[3]);
   }
   setNextQuestion() {
     let counter = this.state.counter + 1;
@@ -94,6 +97,7 @@ export default class Questions extends Component {
     });
   }
   render() {
+    console.log('asn', this.state.answer);
     return (
       <div>
         <h1>{this.state.question}</h1>

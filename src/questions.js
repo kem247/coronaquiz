@@ -1,8 +1,8 @@
-import cleaning from './cleaning.png';
-import cooking from './cookingma.png';
-import hoarder from './hoarder.png';
-import messy from './messy.png';
-import perfect from './perfect.png';
+// import cleaning from './cleaning.png';
+// import cooking from './cookingma.png';
+// import hoarder from './hoarder.png';
+// import messy from './messy.png';
+// import perfect from './perfect.png';
 const quizQuestions = [
   {
     question:
@@ -49,15 +49,15 @@ const quizQuestions = [
     answers: [
       {
         type: 'Obsessive Cleaner',
-        content: cleaning,
+        image: 'cleaning.png',
       },
       {
         type: 'Chef',
-        content: cooking,
+        image: 'cookingma.png',
       },
       {
         type: 'Hoarder',
-        content: hoarder,
+        image: 'hoarder.png',
       },
     ],
   },
@@ -66,11 +66,11 @@ const quizQuestions = [
     answers: [
       {
         type: ['Obsessive Cleaner, Hoarder'],
-        content: perfect,
+        image: 'perfect.png',
       },
       {
         type: 'Chef',
-        content: messy,
+        image: 'messy.png',
       },
     ],
   },
