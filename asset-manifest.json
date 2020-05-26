@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/coronaquiz/static/css/main.ca54f056.chunk.css",
-    "main.js": "/coronaquiz/static/js/main.e9dcaa15.chunk.js",
-    "main.js.map": "/coronaquiz/static/js/main.e9dcaa15.chunk.js.map",
+    "main.js": "/coronaquiz/static/js/main.05c984ab.chunk.js",
+    "main.js.map": "/coronaquiz/static/js/main.05c984ab.chunk.js.map",
     "runtime-main.js": "/coronaquiz/static/js/runtime-main.8ed91856.js",
     "runtime-main.js.map": "/coronaquiz/static/js/runtime-main.8ed91856.js.map",
     "static/js/2.4a199013.chunk.js": "/coronaquiz/static/js/2.4a199013.chunk.js",
     "static/js/2.4a199013.chunk.js.map": "/coronaquiz/static/js/2.4a199013.chunk.js.map",
     "index.html": "/coronaquiz/index.html",
-    "precache-manifest.b6064ba8127b6b335284cfb89627a231.js": "/coronaquiz/precache-manifest.b6064ba8127b6b335284cfb89627a231.js",
+    "precache-manifest.f1b547a615367059adf4172ac5e28f92.js": "/coronaquiz/precache-manifest.f1b547a615367059adf4172ac5e28f92.js",
     "service-worker.js": "/coronaquiz/service-worker.js",
     "static/css/main.ca54f056.chunk.css.map": "/coronaquiz/static/css/main.ca54f056.chunk.css.map",
     "static/js/2.4a199013.chunk.js.LICENSE.txt": "/coronaquiz/static/js/2.4a199013.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8ed91856.js",
     "static/js/2.4a199013.chunk.js",
     "static/css/main.ca54f056.chunk.css",
-    "static/js/main.e9dcaa15.chunk.js"
+    "static/js/main.05c984ab.chunk.js"
   ]
 }
