@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import quizQuestions from '../questions';
 import Answers from './Answers';
-
+import ChefResult from './ChefResult';
+import CleanerResult from './CleanerResult';
+import HoarderResult from './HoarderResult';
+import Undetermined from './Undetermined';
+import '../scss/style.scss';
 export default class Questions extends Component {
   constructor(props) {
     super(props);
@@ -11,14 +15,23 @@ export default class Questions extends Component {
       question: '',
       answerOptions: [],
       answer: '',
-      questionTotal: 0,
       answersCount: {},
-      questions: quizQuestions,
+      result: '',
     };
-    this.setNextQuestion = this.setNextQuestion.bind(this);
+
     this.handleSelectedAnswer = this.handleSelectedAnswer.bind(this);
   }
 
+  getResults() {
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    const answersCountValues = answersCountKeys.map((key) => answersCount[key]);
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+
+    return answersCountKeys.filter(
+      (key) => answersCount[key] === maxAnswerCount
+    );
+  }
   setResults(result) {
     if (result.length === 1) {
       this.setState({ result: result[0] });
@@ -26,6 +39,7 @@ export default class Questions extends Component {
       this.setState({ result: 'Undetermined' });
     }
   }
+
   setUserAnswer(answer) {
     this.setState((state) => ({
       answersCount: {
@@ -36,15 +50,14 @@ export default class Questions extends Component {
     }));
   }
   handleSelectedAnswer(e) {
-    this.setUserAnswer(e);
+    this.setUserAnswer(e.currentTarget.value);
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
-      setTimeout(() => this.setResults(), 300);
+      setTimeout(() => this.setResults(this.getResults()), 300);
     }
   }
   renderAnswerOptions(key) {
-    // console.log(key.image);
     return (
       <Answers
         key={key.content || key.image}
@@ -62,13 +75,10 @@ export default class Questions extends Component {
       temporaryValue,
       randomIndex;
 
-    // While there remain elements to shuffle...
     while (0 !== currentIndex) {
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex -= 1;
 
-      // And swap it with the current element.
       temporaryValue = array[currentIndex];
       array[currentIndex] = array[randomIndex];
       array[randomIndex] = temporaryValue;
@@ -83,30 +93,43 @@ export default class Questions extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswer[0],
     });
-    console.log(shuffledAnswer[3]);
   }
   setNextQuestion() {
     let counter = this.state.counter + 1;
-    console.log(counter);
+    let questionId = this.state.questionId + 1;
     this.setState({
       counter: counter,
+      questionId: questionId,
       question: quizQuestions[counter].question,
       answerOptions:
-        quizQuestions[counter].answers || quizQuestions[counter][1].answers,
+        quizQuestions[counter].answers ||
+        quizQuestions[counter][1].answers ||
+        quizQuestions[counter].answers.map((answ) => answ.type),
       answer: '',
     });
   }
+  renderResults() {
+    if (this.state.result === 'Chef') {
+      return <ChefResult quizResult={this.state.result} />;
+    } else if (this.state.result === 'Obsessive Cleaner') {
+      return <CleanerResult quizResult={this.state.result} />;
+    } else if (this.state.result === 'Hoarder') {
+      return <HoarderResult quizResult={this.state.result} />;
+    } else {
+      return <Undetermined />;
+    }
+  }
   render() {
-    console.log('asn', this.state.answer);
     return (
       <div>
-        <h1>{this.state.question}</h1>
-        <h2>
-          {this.state.answerOptions.map((answer) =>
-            this.renderAnswerOptions(answer)
-          )}
+        <h1>{!this.state.result.length ? this.state.question : ''}</h1>
+        <h2 className="answerOptions">
+          {this.state.result
+            ? this.renderResults()
+            : this.state.answerOptions.map((answer) =>
+                this.renderAnswerOptions(answer)
+              )}
         </h2>
-        <button onClick={this.setNextQuestion}></button>
       </div>
     );
   }

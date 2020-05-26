@@ -1,13 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Questions from './components/Questions';
+import '../src/scss/style.scss';
+import Quiz from './components/Quiz';
 function App() {
+  function refreshPage() {
+    window.location.reload();
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <Questions />
-      </header>
+      <div className="Appheader">
+        <div className="container">
+          <header className="header" onClick={refreshPage}>
+            What Type of Person Are You In Quarantine?
+          </header>
+          <div className="Appheader-content">
+            <Quiz className="content-box" />
+            <br></br>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

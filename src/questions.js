@@ -1,8 +1,3 @@
-// import cleaning from './cleaning.png';
-// import cooking from './cookingma.png';
-// import hoarder from './hoarder.png';
-// import messy from './messy.png';
-// import perfect from './perfect.png';
 const quizQuestions = [
   {
     question:
@@ -65,7 +60,7 @@ const quizQuestions = [
     question: 'Which of these images describes your handwriting?',
     answers: [
       {
-        type: ['Obsessive Cleaner, Hoarder'],
+        type: ['Obsessive Cleaner', 'Hoarder'],
         image: 'perfect.png',
       },
       {

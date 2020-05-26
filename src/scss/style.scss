@@ -1,0 +1,116 @@
+@font-face {
+  font-family: 'Elegrand Gothic Demo';
+  src: url('http://www.fontsaddict.com/fontface/elegrand-gothic-demo.ttf');
+}
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #00cdcd;
+$primary-color: #6bb6ff;
+$secondary-color: #836bff;
+$tertiary-color: #542147;
+$white: #f4f4f4;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $white;
+  font-family: $font-stack;
+  line-height: 1.6;
+}
+
+.Appheader {
+  height: 230px;
+  background-color: $primary-color;
+  color: $secondary-color;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header {
+    align-self: center;
+    text-align: center;
+    color: $light-color;
+    cursor: pointer;
+    font-family: 'Janda Manatee Bubble';
+    text-shadow: 2px 2px black;
+    font-size: 50px;
+  }
+
+  &-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 150px;
+    font-family: 'Elegrand Gothic Dem';
+    font-size: 20px;
+    text-shadow: 2px 2px black;
+  }
+}
+
+.container {
+  max-width: 1100px;
+  padding: 0 30px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+span,
+span:before {
+  border-style: solid;
+  border-color: $tertiary-color;
+  border-image: linear-gradient(
+    30deg,
+    $light-color 0%,
+    $secondary-color 50%,
+    $tertiary-color 100%
+  );
+  border-image-slice: 1;
+}
+span {
+  padding: 30px;
+  position: relative;
+  margin-top: -220px;
+  border-width: 6px;
+  height: 100px;
+  width: 150px;
+}
+span:before {
+  content: ' ';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
+  border-width: 3px;
+}
+
+.content-box {
+  position: relative;
+}
+.border {
+  position: absolute;
+}
+
+.imageContainer {
+  text-align: center;
+}
+li.answerOption {
+  list-style-type: none;
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) {
+  width: 75%;
+}
+
+// /* Medium Devices, Desktops */
+@media only screen and (min-width: 992px) {
+  width: 50%;
+}
