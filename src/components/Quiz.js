@@ -116,7 +116,7 @@ export default class Questions extends Component {
     } else if (this.state.result === 'Hoarder') {
       return <HoarderResult quizResult={this.state.result} />;
     } else {
-      return <Undetermined />;
+      return <Undetermined quizResult={this.state.result} />;
     }
   }
   render() {
